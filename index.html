@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Download Cooksy</title>
+  <meta name="description" content="Download Cooksy for Android and Mac, or add it to your iPhone home screen. Allergy-aware recipes from 113 cuisines.">
+  <meta name="theme-color" content="#24332d">
+  <meta property="og:title" content="Cooksy: find food you can safely cook">
+  <meta property="og:description" content="Allergy-aware recipes, matched to what's in your kitchen. Free for Android, Mac and iPhone.">
+  <meta property="og:image" content="https://cooksy-app.github.io/cooksy/app/assets/cooksy-logo.png">
+  <link rel="icon" type="image/png" href="app/assets/favicon.png">
+  <link rel="apple-touch-icon" href="app/assets/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #24332d; --ink-2: #3c4d45; --muted: #66766e; --line: #e8dfcf; --cream: #fbf6ec; --paper: #fff;
+      --sand: #f4ecdd; --saffron: #f2a44c; --saffron-soft: #fdebd2; --green: #2f6b4f; --green-soft: #e3f0e8;
+      --yellow: #fff6bf; --yellow-line: #f0d443;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+    h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; line-height: 1.1; margin: 0; letter-spacing: -0.01em; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid #1d5fd6; outline-offset: 3px; border-radius: 8px; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+    header.top { padding: 18px 0; }
+    header.top .wrap { display: flex; align-items: center; gap: 10px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.4rem; }
+    .brand img { width: 40px; height: 40px; border-radius: 11px; background: #fff; box-shadow: 0 1px 3px rgba(36,51,45,.12); }
+    .brand i { color: var(--saffron); font-style: normal; }
+    header.top nav { margin-left: auto; display: flex; gap: 6px; }
+    header.top nav a { text-decoration: none; font-weight: 700; font-size: .92rem; padding: 8px 12px; border-radius: 999px; }
+    header.top nav a:hover { background: var(--sand); }
+
+    .hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; padding: 28px 0 56px; }
+    .eyebrow { text-transform: uppercase; letter-spacing: .14em; font-size: .75rem; font-weight: 800; color: #b8661a; }
+    .hero h1 { font-size: clamp(2.3rem, 6vw, 3.8rem); margin-top: 10px; }
+    .hero p.lead { font-size: 1.12rem; color: var(--ink-2); margin: 16px 0 0; max-width: 48ch; }
+    .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 12px 22px; border-radius: 999px; font-weight: 800; text-decoration: none; border: 2px solid transparent; font-size: 1rem; cursor: pointer; transition: transform .05s, background .15s, border-color .15s; }
+    .btn:active { transform: translateY(1px); }
+    .btn svg { width: 22px; height: 22px; flex: none; }
+    .btn--dark { background: var(--ink); color: #fff; }
+    .btn--dark:hover { background: #17221e; }
+    .btn--accent { background: var(--saffron); color: var(--ink); }
+    .btn--accent:hover { background: #ee9632; }
+    .btn--light { background: var(--paper); border-color: #d6cab5; color: var(--ink); }
+    .btn--light:hover { border-color: var(--ink); }
+    .btn small { display: block; font-weight: 600; font-size: .74rem; opacity: .8; }
+    .btn .two { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+    .meta { margin-top: 14px; font-size: .86rem; color: var(--muted); }
+    .hero-art { position: relative; display: grid; place-items: center; }
+    .hero-art::before { content: ''; position: absolute; width: 88%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, var(--saffron-soft) 0 60%, transparent 61%); }
+    .hero-art img { position: relative; width: min(340px, 80%); border-radius: 40px; background: #fff; box-shadow: 0 30px 60px -25px rgba(36,51,45,.45); transform: rotate(-3deg); }
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; gap: 24px; padding-top: 8px; text-align: center; }
+      .hero p.lead { margin-left: auto; margin-right: auto; }
+      .cta { justify-content: center; }
+      .hero-art { order: -1; }
+      .hero-art img { width: 180px; border-radius: 28px; }
+      header.top nav { display: none; }
+    }
+
+    section { padding: 56px 0; }
+    section > .wrap > h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); text-align: center; }
+    section > .wrap > p.sub { text-align: center; color: var(--muted); margin: 10px auto 0; max-width: 56ch; }
+
+    .video { margin-top: 28px; border-radius: 24px; overflow: hidden; background: #000; box-shadow: 0 30px 60px -30px rgba(36,51,45,.5); }
+    .video video { display: block; width: 100%; height: auto; }
+
+    .platforms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+    @media (max-width: 960px) { .platforms { grid-template-columns: 1fr; } }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 16px; }
+    .card.is-you { border: 2px solid var(--saffron); box-shadow: 0 16px 40px -24px rgba(184,102,26,.55); }
+    .card .you { display: none; align-self: flex-start; background: var(--saffron); color: var(--ink); font-weight: 800; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+    .card.is-you .you { display: inline-block; }
+    .card h3 { font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+    .card h3 svg { width: 28px; height: 28px; }
+    .card .btn { width: 100%; }
+    ol.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 12px; }
+    ol.steps li { counter-increment: s; display: grid; grid-template-columns: 30px 1fr; gap: 10px; font-size: .95rem; }
+    ol.steps li::before { content: counter(s); width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--saffron-soft); color: #7a4310; font-weight: 800; font-size: .85rem; }
+    .chip-icon { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 7px; background: var(--sand); vertical-align: -7px; margin: 0 2px; }
+    .chip-icon svg { width: 17px; height: 17px; color: #0a7aff; }
+    .note { font-size: .85rem; color: var(--muted); }
+    .yellow { background: var(--yellow); border: 1px solid var(--yellow-line); color: #4d3d00; padding: 12px 14px; border-radius: 14px; font-size: .9rem; }
+
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 30px; }
+    .feature { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 20px; }
+    .feature span { font-size: 1.6rem; }
+    .feature h3 { font-size: 1.15rem; margin-top: 8px; }
+    .feature p { margin: 6px 0 0; color: var(--ink-2); font-size: .95rem; }
+
+    .safety { margin-top: 26px; text-align: center; color: var(--muted); font-size: .9rem; }
+    footer { padding: 36px 0 48px; text-align: center; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--line); }
+    footer b { letter-spacing: .14em; color: var(--ink-2); }
+  </style>
+</head>
+<body>
+  <header class="top"><div class="wrap">
+    <a class="brand" href="./"><img src="app/assets/cooksy-mark.png" alt="">Cooksy<i>.</i></a>
+    <nav aria-label="Page"><a href="#download">Download</a><a href="#trailer">Trailer</a><a href="app/">Open in browser</a></nav>
+  </div></header>
+
+  <main>
+    <div class="wrap hero">
+      <div>
+        <span class="eyebrow">Free · Version <span class="js-version">1.0.0</span></span>
+        <h1>Find food you can safely cook.</h1>
+        <p class="lead">Recipes from 113 cuisines, filtered for your allergies and matched to what’s already in your kitchen, with a shopping list for what’s missing.</p>
+        <div class="cta" id="primary-cta">
+          <a class="btn btn--dark" href="#download">Get Cooksy</a>
+          <a class="btn btn--light" href="app/">Open in browser</a>
+        </div>
+        <p class="meta">Android · Mac · iPhone &amp; iPad · Web</p>
+      </div>
+      <div class="hero-art"><img src="app/assets/cooksy-logo.png" alt="Cooksy chef mascot"></div>
+    </div>
+
+    <section id="download" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+      <div class="wrap">
+        <h2>Download Cooksy</h2>
+        <p class="sub">Pick your device. It’s free, with no ads.</p>
+        <div class="platforms">
+
+          <article class="card" id="android">
+            <span class="you">Your device</span>
+            <h3><svg viewBox="0 0 24 24" fill="#3ddc84" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18a.38.38 0 00-.66-.38l-1.86 3.22A11.5 11.5 0 0012 8.1c-1.77 0-3.43.38-4.92 1.04L5.22 5.92a.38.38 0 00-.66.38L6.4 9.48A10.8 10.8 0 001 18h22a10.8 10.8 0 00-5.4-8.52zM7 15.25a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm10 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"/></svg>Android</h3>
+            <a class="btn btn--accent" href="https://github.com/cooksy-app/cooksy/releases/latest/download/Cooksy.apk">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              <span class="two">Download APK<small>Android 7.0 or newer</small></span>
+            </a>
+            <ol class="steps">
+              <li><span>Tap <b>Download APK</b> on your phone.</span></li>
+              <li><span>Open the downloaded file. If asked, allow your browser to <b>install unknown apps</b>.</span></li>
+              <li><span>Tap <b>Install</b>. If Play Protect warns about an unknown app, tap <b>More details → Install anyway</b>.</span></li>
+            </ol>
+            <p class="note">Updating? Install the new APK over the old one. Your data is kept.</p>
+          </article>
+
+          <article class="card" id="mac">
+            <span class="you">Your device</span>
+            <h3><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 1.43c0 1.14-.42 2.2-1.26 3.04-.9.9-1.98 1.42-3.15 1.33-.15-1.1.4-2.26 1.2-3.06.9-.9 2.16-1.38 3.2-1.31zM20.5 17.3c-.55 1.27-.82 1.84-1.53 2.96-1 1.56-2.4 3.5-4.14 3.52-1.55.02-1.95-1-4.05-1-2.1.01-2.54 1.02-4.09 1-1.74-.02-3.07-1.77-4.07-3.33C-.17 16.08-.46 11 1.29 8.3c1.24-1.92 3.2-3.04 5.04-3.04 1.87 0 3.05 1.03 4.6 1.03 1.5 0 2.42-1.03 4.58-1.03 1.64 0 3.38.9 4.62 2.44-4.06 2.22-3.4 8.02.37 9.6z"/></svg>Mac</h3>
+            <a class="btn btn--accent" href="https://github.com/cooksy-app/cooksy/releases/latest/download/Cooksy-mac.dmg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              <span class="two">Download for Mac<small>Apple silicon &amp; Intel · macOS 11+</small></span>
+            </a>
+            <ol class="steps">
+              <li><span>Open <b>Cooksy-mac.dmg</b> and drag <b>Cooksy</b> into <b>Applications</b>.</span></li>
+              <li><span>Open Cooksy. The first time, macOS will say it can’t check the app. Click <b>Done</b>.</span></li>
+              <li><span>Go to <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b>. You only do this once.</span></li>
+            </ol>
+            <p class="note">This step is needed because Cooksy isn’t sold through the Mac App Store.</p>
+          </article>
+
+          <article class="card" id="iphone">
+            <span class="you">Your device</span>
+            <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>iPhone &amp; iPad</h3>
+            <a class="btn btn--accent" href="app/">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg>
+              <span class="two">Open Cooksy in Safari<small>Then add it to your Home Screen</small></span>
+            </a>
+            <ol class="steps">
+              <li><span>Tap the button above <b>in Safari</b>.</span></li>
+              <li><span>Tap the <b>Share</b> button <span class="chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7M16 6l-4-4-4 4M12 2v13"/></svg></span> at the bottom (iPad: top right).</span></li>
+              <li><span>Scroll down and tap <b>Add to Home Screen</b> <span class="chip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span>.</span></li>
+              <li><span>Tap <b>Add</b>. Cooksy now opens from your Home Screen like any app, even offline.</span></li>
+            </ol>
+            <p class="note">Apple only allows App Store downloads on iPhone, so Cooksy installs from Safari instead.</p>
+          </article>
+
+        </div>
+        <p class="safety">On a computer? You can also <a href="app/">use Cooksy in your browser</a>.</p>
+      </div>
+    </section>
+
+    <section id="trailer">
+      <div class="wrap">
+        <h2>See it in action</h2>
+        <div class="video"><video controls playsinline preload="metadata" poster="trailer-poster.jpg"><source src="trailer.mp4" type="video/mp4"></video></div>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="wrap">
+        <h2>Cooking, made safe and simple</h2>
+        <div class="features">
+          <div class="feature"><span aria-hidden="true">🛡️</span><h3>Allergy-aware</h3><p>Choose allergens and foods to avoid. Recipes that contain them are filtered out everywhere.</p></div>
+          <div class="feature"><span aria-hidden="true">🌾</span><h3>Gluten-free mode</h3><p>Flags every packaged ingredient that needs a certified gluten-free label.</p></div>
+          <div class="feature"><span aria-hidden="true">🌍</span><h3>113 cuisines</h3><p>From Pakistani and Indian to Hungarian, Ethiopian and Thai.</p></div>
+          <div class="feature"><span aria-hidden="true">🧊</span><h3>Cook with what you have</h3><p>Track your fridge, pantry and freezer and see what you can make right now.</p></div>
+          <div class="feature"><span aria-hidden="true">🛒</span><h3>Smart shopping list</h3><p>Only the missing ingredients, grouped by dish.</p></div>
+          <div class="feature"><span aria-hidden="true">✉️</span><h3>Verified account</h3><p>Sign up with your email and a verification code.</p></div>
+        </div>
+        <div class="yellow" style="margin-top:22px;text-align:center"><b>Signing up?</b> Your verification code comes from <b>no.reply.cooksy@gmail.com</b>. If you don’t see it, <b>check your Spam folder</b>.</div>
+        <p class="safety">Always check labels. Cooksy checks the ingredients listed in each recipe but can’t see inside packaged products, so no recipe is guaranteed allergen-free. Nutrition values are estimates.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">
+    <p><b>HADZZ STUDIOS</b></p>
+    <p>© <span id="year">2026</span> HADZZ STUDIOS. All rights reserved.</p>
+  </div></footer>
+
+  <script>
+    // Highlight the visitor's platform and make the top button download for it.
+    (function () {
+      var ua = navigator.userAgent;
+      var iOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      var android = /Android/i.test(ua);
+      var mac = !iOS && /Macintosh|Mac OS X/.test(ua);
+      var id = iOS ? 'iphone' : android ? 'android' : mac ? 'mac' : null;
+      if (id) {
+        document.getElementById(id).classList.add('is-you');
+        var src = document.querySelector('#' + id + ' .btn');
+        var first = document.querySelector('#primary-cta .btn');
+        first.href = src.href;
+        first.textContent = iOS ? 'Open in Safari' : android ? 'Download for Android' : 'Download for Mac';
+        var grid = document.querySelector('.platforms');
+        grid.insertBefore(document.getElementById(id), grid.firstChild);
+      }
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // Show the current version from GitHub Releases (falls back to the text in the page).
+      fetch('https://api.github.com/repos/cooksy-app/cooksy/releases/latest')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          if (!d || !d.tag_name) return;
+          document.querySelectorAll('.js-version').forEach(function (el) { el.textContent = d.tag_name.replace(/^v/, ''); });
+        })
+        .catch(function () {});
+    })();
+  </script>
+</body>
+</html>
