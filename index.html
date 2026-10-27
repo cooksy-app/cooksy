@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Download Cooksy</title>
-  <meta name="description" content="Download Cooksy for Android and Mac, or add it to your iPhone home screen. Allergy-aware recipes from 113 cuisines.">
+  <meta name="description" content="Download Cooksy for Android, or add it to your iPhone home screen. Allergy-aware recipes from 113 cuisines.">
   <meta name="theme-color" content="#24332d">
   <meta property="og:title" content="Cooksy: find food you can safely cook">
-  <meta property="og:description" content="Allergy-aware recipes, matched to what's in your kitchen. Free for Android, Mac and iPhone.">
+  <meta property="og:description" content="Allergy-aware recipes, matched to what's in your kitchen. Free for Android, iPhone and the web.">
   <meta property="og:image" content="https://cooksy-app.github.io/cooksy/app/assets/cooksy-logo.png">
   <link rel="icon" type="image/png" href="app/assets/favicon.png">
   <link rel="apple-touch-icon" href="app/assets/icon-180.png">
@@ -72,7 +72,7 @@
     .video { margin-top: 28px; border-radius: 24px; overflow: hidden; background: #000; box-shadow: 0 30px 60px -30px rgba(36,51,45,.5); }
     .video video { display: block; width: 100%; height: auto; }
 
-    .platforms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+    .platforms { display: grid; grid-template-columns: repeat(2, 1fr); max-width: 820px; margin-left: auto; margin-right: auto; gap: 18px; margin-top: 32px; }
     @media (max-width: 960px) { .platforms { grid-template-columns: 1fr; } }
     .card { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 24px; display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 16px; }
     .card.is-you { border: 2px solid var(--saffron); box-shadow: 0 16px 40px -24px rgba(184,102,26,.55); }
@@ -116,7 +116,7 @@
           <a class="btn btn--dark" href="#download">Get Cooksy</a>
           <a class="btn btn--light" href="app/">Open in browser</a>
         </div>
-        <p class="meta">Android · Mac · iPhone &amp; iPad · Web</p>
+        <p class="meta">Android · iPhone &amp; iPad · Web</p>
       </div>
       <div class="hero-art"><img src="app/assets/cooksy-logo.png" alt="Cooksy chef mascot"></div>
     </div>
@@ -140,21 +140,6 @@
               <li><span>Tap <b>Install</b>. If Play Protect warns about an unknown app, tap <b>More details → Install anyway</b>.</span></li>
             </ol>
             <p class="note">Updating? Install the new APK over the old one. Your data is kept.</p>
-          </article>
-
-          <article class="card" id="mac">
-            <span class="you">Your device</span>
-            <h3><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 1.43c0 1.14-.42 2.2-1.26 3.04-.9.9-1.98 1.42-3.15 1.33-.15-1.1.4-2.26 1.2-3.06.9-.9 2.16-1.38 3.2-1.31zM20.5 17.3c-.55 1.27-.82 1.84-1.53 2.96-1 1.56-2.4 3.5-4.14 3.52-1.55.02-1.95-1-4.05-1-2.1.01-2.54 1.02-4.09 1-1.74-.02-3.07-1.77-4.07-3.33C-.17 16.08-.46 11 1.29 8.3c1.24-1.92 3.2-3.04 5.04-3.04 1.87 0 3.05 1.03 4.6 1.03 1.5 0 2.42-1.03 4.58-1.03 1.64 0 3.38.9 4.62 2.44-4.06 2.22-3.4 8.02.37 9.6z"/></svg>Mac</h3>
-            <a class="btn btn--accent" href="https://github.com/cooksy-app/cooksy/releases/latest/download/Cooksy-mac.dmg">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-              <span class="two">Download for Mac<small>Apple silicon &amp; Intel · macOS 11+</small></span>
-            </a>
-            <ol class="steps">
-              <li><span>Open <b>Cooksy-mac.dmg</b> and drag <b>Cooksy</b> into <b>Applications</b>.</span></li>
-              <li><span>Open Cooksy. The first time, macOS will say it can’t check the app. Click <b>Done</b>.</span></li>
-              <li><span>Go to <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b>. You only do this once.</span></li>
-            </ol>
-            <p class="note">This step is needed because Cooksy isn’t sold through the Mac App Store.</p>
           </article>
 
           <article class="card" id="iphone">
@@ -213,14 +198,13 @@
       var ua = navigator.userAgent;
       var iOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
       var android = /Android/i.test(ua);
-      var mac = !iOS && /Macintosh|Mac OS X/.test(ua);
-      var id = iOS ? 'iphone' : android ? 'android' : mac ? 'mac' : null;
+      var id = iOS ? 'iphone' : android ? 'android' : null;
       if (id) {
         document.getElementById(id).classList.add('is-you');
         var src = document.querySelector('#' + id + ' .btn');
         var first = document.querySelector('#primary-cta .btn');
         first.href = src.href;
-        first.textContent = iOS ? 'Open in Safari' : android ? 'Download for Android' : 'Download for Mac';
+        first.textContent = iOS ? 'Open in Safari' : 'Download for Android';
         var grid = document.querySelector('.platforms');
         grid.insertBefore(document.getElementById(id), grid.firstChild);
       }
